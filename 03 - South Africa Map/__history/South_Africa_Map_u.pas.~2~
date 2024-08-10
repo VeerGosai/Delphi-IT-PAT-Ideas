@@ -1,0 +1,208 @@
+unit South_Africa_Map_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Imaging.pngimage,
+  Vcl.ExtCtrls;
+
+type
+  TfrmMap = class(TForm)
+    pnlProvinceIndex: TPanel;
+    imgProvinceIndex: TImage;
+    imgPINorthernCape: TImage;
+    imgPINorthWest: TImage;
+    imgPIWesternCape: TImage;
+    imgPIGauteng: TImage;
+    imgPIFreeState: TImage;
+    imgPIMpumalanga: TImage;
+    imgPIKwaZuluNatal: TImage;
+    imgPIEasternCape: TImage;
+    imgPILimpopo: TImage;
+    lblPISelectProvince: TLabel;
+    procedure imgPIEasternCapeClick(Sender: TObject);
+    procedure imgPINorthWestClick(Sender: TObject);
+    procedure imgPILimpopoClick(Sender: TObject);
+    procedure imgPIMpumalangaClick(Sender: TObject);
+    procedure imgPIGautengClick(Sender: TObject);
+    procedure imgPINorthernCapeClick(Sender: TObject);
+    procedure imgPIFreeStateClick(Sender: TObject);
+    procedure imgPIKwaZuluNatalClick(Sender: TObject);
+    procedure imgPIWesternCapeClick(Sender: TObject);
+    procedure imgPILimpopoMouseEnter(Sender: TObject);
+    procedure imgPILimpopoMouseLeave(Sender: TObject);
+    procedure imgPIMpumalangaMouseEnter(Sender: TObject);
+    procedure imgPIMpumalangaMouseLeave(Sender: TObject);
+    procedure imgPIGautengMouseEnter(Sender: TObject);
+    procedure imgPIGautengMouseLeave(Sender: TObject);
+    procedure imgPINorthWestMouseEnter(Sender: TObject);
+    procedure imgPINorthWestMouseLeave(Sender: TObject);
+    procedure imgPINorthernCapeMouseEnter(Sender: TObject);
+    procedure imgPINorthernCapeMouseLeave(Sender: TObject);
+    procedure imgPIFreeStateMouseEnter(Sender: TObject);
+    procedure imgPIFreeStateMouseLeave(Sender: TObject);
+    procedure imgPIKwaZuluNatalMouseEnter(Sender: TObject);
+    procedure imgPIKwaZuluNatalMouseLeave(Sender: TObject);
+    procedure imgPIWesternCapeMouseEnter(Sender: TObject);
+    procedure imgPIWesternCapeMouseLeave(Sender: TObject);
+    procedure imgPIEasternCapeMouseEnter(Sender: TObject);
+    procedure imgPIEasternCapeMouseLeave(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMap: TfrmMap;
+
+implementation
+
+{$R *.dfm}
+
+//Eastern Cape
+procedure TfrmMap.imgPIEasternCapeClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIEasternCapeMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Eastern Cape.png')
+end;
+
+procedure TfrmMap.imgPIEasternCapeMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Free State
+procedure TfrmMap.imgPIFreeStateClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIFreeStateMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Free State.png')
+end;
+
+procedure TfrmMap.imgPIFreeStateMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Gauteng
+procedure TfrmMap.imgPIGautengClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIGautengMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Gauteng.png')
+end;
+
+procedure TfrmMap.imgPIGautengMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//KZN
+procedure TfrmMap.imgPIKwaZuluNatalClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIKwaZuluNatalMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\KZN.png')
+end;
+
+procedure TfrmMap.imgPIKwaZuluNatalMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Limpopo
+procedure TfrmMap.imgPILimpopoClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPILimpopoMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Limpopo.png')
+end;
+
+procedure TfrmMap.imgPILimpopoMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Mpumalanga
+procedure TfrmMap.imgPIMpumalangaClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIMpumalangaMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Mpumalanga.png')
+end;
+
+procedure TfrmMap.imgPIMpumalangaMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Northern Cape
+procedure TfrmMap.imgPINorthernCapeClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPINorthernCapeMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Northern Cape.png')
+end;
+
+procedure TfrmMap.imgPINorthernCapeMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//North West
+procedure TfrmMap.imgPINorthWestClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPINorthWestMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\North West.png')
+end;
+
+procedure TfrmMap.imgPINorthWestMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+//Western Cape
+procedure TfrmMap.imgPIWesternCapeClick(Sender: TObject);
+begin
+  //Code When Picture is Clicked
+end;
+
+procedure TfrmMap.imgPIWesternCapeMouseEnter(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Western Cape.png')
+end;
+
+procedure TfrmMap.imgPIWesternCapeMouseLeave(Sender: TObject);
+begin
+  imgProvinceIndex.Picture.LoadFromFile('Provinces\Blank.png')
+end;
+
+end.

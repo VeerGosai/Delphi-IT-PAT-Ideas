@@ -1,0 +1,86 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 442
+  ClientWidth = 628
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object Label1: TLabel
+    Left = 336
+    Top = 48
+    Width = 210
+    Height = 15
+    Caption = 'Sending Email requires there 3 elements'
+  end
+  object Label2: TLabel
+    Left = 64
+    Top = 48
+    Width = 169
+    Height = 15
+    Caption = 'Sending Email requires 2 dll files'
+  end
+  object Label3: TLabel
+    Left = 64
+    Top = 69
+    Width = 59
+    Height = 15
+    Caption = 'libeay32.dll'
+  end
+  object Label4: TLabel
+    Left = 64
+    Top = 90
+    Width = 59
+    Height = 15
+    Caption = 'ssleay32.dll'
+  end
+  object btnEmail: TButton
+    Left = 231
+    Top = 239
+    Width = 162
+    Height = 40
+    Caption = 'Send Email'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    OnClick = btnEmailClick
+  end
+  object idmsg1: TIdMessage
+    AttachmentEncoding = 'UUE'
+    BccList = <>
+    CCList = <>
+    Encoding = meDefault
+    FromList = <
+      item
+      end>
+    Recipients = <>
+    ReplyTo = <>
+    ConvertPreamble = True
+    Left = 368
+    Top = 75
+  end
+  object idsmtp1: TIdSMTP
+    SASLMechanisms = <>
+    Left = 432
+    Top = 75
+  end
+  object idslhndlrscktpnsl1: TIdSSLIOHandlerSocketOpenSSL
+    MaxLineAction = maException
+    Port = 0
+    DefaultPort = 0
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 496
+    Top = 75
+  end
+end

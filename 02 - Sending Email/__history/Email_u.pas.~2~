@@ -1,0 +1,112 @@
+unit Email_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, IdIOHandler,
+  IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL, IdComponent,
+  IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdMessageClient,
+  IdSMTPBase, IdSMTP, IdBaseComponent, IdMessage;
+
+type
+  TForm1 = class(TForm)
+    btnEmail: TButton;
+    idmsg1: TIdMessage;
+    idsmtp1: TIdSMTP;
+    idslhndlrscktpnsl1: TIdSSLIOHandlerSocketOpenSSL;
+    Label1: TLabel;
+    procedure btnEmailClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+//******************************************************************************Email
+// Email Configuration
+  procedure Gmail(username, password, totarget, subject, body: string);
+VAR
+  MailData: TIdMessage;
+  SMTP: TIdSMTP;
+  SSL: TIdSSLIOHandlerSocketOpenSSL;
+
+begin
+// Input
+  SMTP := TIdSMTP.Create(nil);
+  MailData := TIdMessage.Create(nil);
+  SSL := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+
+//Configuration
+  //SSL (Secure Sockets Layer) 128-bit encryption
+  SSL.SSLOptions.Method := sslvTLSv1;
+  SSL.SSLOptions.Mode := sslmUnassigned;
+  SSL.SSLOptions.VerifyMode := [];
+  SSL.SSLOptions.VerifyDepth := 0;
+
+  //Email Contents
+  MailData.From.Address := username;
+  MailData.Recipients.EMailAddresses := totarget;
+  MailData.subject := subject;
+  MailData.body.text := body;
+
+  //SMPT (Simple Mail Transfer Protocol) Gmail Configuration
+  SMTP.IOHandler := SSL;
+  SMTP.Host := 'smtp.gmail.com';
+  SMTP.Port := 587;
+  SMTP.username := 'DatZAOTP@gmail.com';
+  SMTP.password := 'Ph@se2IsE1sh';
+  SMTP.UseTLS := utUseExplicitTLS;
+  //SMTP Send
+  SMTP.Connect;
+  SMTP.Send(MailData);
+  SMTP.Disconnect;
+
+//Output (SMTP, MailData and SSL Destructor)
+  SMTP.Free;
+  MailData.Free;
+  SSL.Free;
+
+end;
+
+procedure TForm1.btnEmailClick(Sender: TObject);
+var
+  sOTP, sUsername, sPassword, sSendersEmail, sInputOTP : String;
+  sMailUsername, sMailPassword, sMailTo, sMailSubject, sMailP1, sMailP2, sMailBody: String;
+  sUser : String;
+begin
+// OTP Generation & Input
+  iOTP := random(899999) + 100000;
+  sOTP := IntToStr(iOTP);
+  sUser := 'Temp';
+
+// e-Mail OTP Input & Sending
+  sMailUsername := 'DatZAOTP@gmail.com';
+  sMailPassword := 'Ph@se2IsE1sh';
+  sMailTo := sSendersEmail;
+  sMailSubject := 'DatZA OTP';
+
+  sMailP1 := 'Your DatZA OTP: ' + sOTP + #10 +
+    'Do Not Share This Code With Anyone';
+  //sMailP2 := 'DatZA Email Policy: https://bit.ly/DatZAPolicy';
+  sMailP2 := '';
+
+  sMailBody := sMailP1 + #10 + #10 + #10 + sMailP2;
+
+  try
+    begin
+      Gmail(sMailUsername, sMailPassword, sMailTo, sMailSubject, sMailBody);
+    end;
+  except
+
+  end;
+end;
+
+end.
